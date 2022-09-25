@@ -1,0 +1,62 @@
+#include <stdio.h>
+
+int main() {
+    int a[50],size,e,i,ele,pos,loc,del;
+    printf("enter size of array : ");
+	scanf("%d", &size);
+	
+	for(i=0; i<size; i++){
+	    printf("enter elements in array : ");
+	    scanf("%d",&a[i]);}
+	printf("elements in array are : ");
+	for(i=0; i<size; i++){
+	    printf("%d", a[i]);}
+	    
+// -----------Insert Element by its position -------------
+
+    printf("\nenter the element to be inserted & its position : ");
+    scanf("%d %d", &ele,&pos);
+	if((pos>size+1)||(pos<1)){
+	    printf("position not valid");
+	}else{
+	    for(i=size-1;i>=pos-1;i--){
+	        a[i+1]=a[i];
+	    }
+	    a[pos-1]=ele;
+	    //size++;
+	}
+	printf("elements in array are : ");
+	for(i=0; i<size; i++){
+	    printf("%d", a[i]);}
+
+// ------------ Locate position of the element -------------
+
+    printf("\nEnter the element to be located :");
+    scanf("%d",&loc);
+    int place=0;
+    for(i=0;i<size;i++){
+        place=place+1;
+        if(a[i]==loc){
+            printf("position is : %d ",place);
+        }
+    }
+    
+//----------Delect given element in the array ------
+
+    printf("\nEnter element position to be delected in the array : ");
+    scanf("%d",&pos);
+    for(i=0; i<size-1;i++){
+        if(pos<0||pos>size){
+            printf("Invalid position");
+            break;
+        }else{
+            size=size-1;
+            for(i=pos-1; i<=size-1;i++){
+                a[i]=a[i+1];
+        }
+    }
+    printf("elements in array are : ");
+	for(i=0; i<size; i++){
+	    printf("%d", a[i]);}
+    }
+}
